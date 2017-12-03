@@ -27,7 +27,7 @@ public class Init extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Initializing");
+		// initialize data
 		Spider spider = new Spider();
 		spider.search("http://maps.ubc.ca/PROD/index.php");
 	}

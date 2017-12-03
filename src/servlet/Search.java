@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import spider.Spider;
 import spider.copy.Data;
 
 /**
@@ -38,7 +37,7 @@ public class Search extends HttpServlet {
 		String key;
 		while(itr.hasNext()) {
 			key = itr.next();
-			if (key.contains(searchWord)) {
+			if (key.contains(searchWord.toUpperCase())) {
 				response.getOutputStream().print(Data.ubcMap.get(key));
 				break;
 			}
@@ -51,9 +50,6 @@ public class Search extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("building"));
-		Spider spider = new Spider();
-		response.getOutputStream().print(spider.search("http://maps.ubc.ca/PROD/index.php", request.getParameter("building")));
 	}
 
 }
