@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Access Finder</title>
+<link rel="stylesheet" href="lib/css/bootstrap.css">
+</head>
+<body>
+<center>
+	<main role="main" style="width: 80%; max-width: 800px;">
+        <div class="jumbotron">
+          <h1 class="display-3">Find your access</h1>
+          <p class="lead">Find your access at UBC buildings</p>
+          <p><form method="get" action="Search" id="search">
+          	<div class="input-group"	style="width:400px; padding:10px;">
+          	<input type="text" name="building" class="form-control" placeholder="Search" /> <input type="submit" class="btn btn-primary">
+          	</div>
+          	</form></p>
+        </div>
+        </div>
+      </main>
+      
+<div id="result" style="padding:10px; max-width:800px;"></div>
+</center>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function() {
+	console.log("doc ready");
+	
+	  $('#search').on('submit', function(e){
+	    // validation code here
+	    console.log("form", this);
+	    
+	    e.preventDefault();
+
+	    console.log("prevent default");
+	    
+	    jQuery.ajax({
+	        url: this.action,
+	        data: $("#search").serialize(),
+	        cache: false,
+	        contentType: false,
+	        processData: false,
+	        method: this.method,
+	        type: this.method, // For jQuery < 1.9
+	        success: function(data){
+	        	console.log(data);
+	            $("#result").html("<small>" + data + "</small>");
+	        }
+	    });
+	    
+	  });
+	});	
+</script>
+</body>
+</html>
