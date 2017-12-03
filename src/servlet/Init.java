@@ -29,7 +29,7 @@ public class Init extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// initialize data
 		Spider spider = new Spider();
-		spider.search("http://maps.ubc.ca/PROD/index.php");
+		spider.search("http://maps.ubc.ca/PROD/buildingsListAll.php");
 	}
 
 	/**

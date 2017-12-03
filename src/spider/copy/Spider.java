@@ -34,9 +34,9 @@ public class Spider {
                 currentUrl = this.nextUrl();
             }
 
-            if (currentUrl.contains("=#showAccess") && !currentUrl.contains("show=n,n,y,n,n,y")) {
-            	continue;
-            }
+//            if (currentUrl.contains("=#showAccess") && !currentUrl.contains("show=n,n,y,n,n,y")) {
+//            	continue;
+//            }
             
             leg.crawl(currentUrl); // Lots of stuff happening here. Look at the crawl method in
             

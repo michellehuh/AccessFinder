@@ -30,7 +30,7 @@ public class Search extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String searchWord = request.getParameter("building");
-		System.out.println("searching for" + searchWord);
+		System.out.println("searching for " + searchWord);
 		
 		Set<String> keys = Data.ubcMap.keySet();
 		Iterator<String> itr = keys.iterator();
