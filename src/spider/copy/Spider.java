@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Spider {
 
-    private static final int MAX_PAGES_TO_SEARCH = 10000;
+    private static final int MAX_PAGES_TO_SEARCH = 2000;
     private Set<String> pagesVisited = new HashSet<String>();
     private List<String> pagesToVisit = new LinkedList<String>();
 
@@ -41,7 +41,7 @@ public class Spider {
             leg.crawl(currentUrl); // Lots of stuff happening here. Look at the crawl method in
             
             if (currentUrl.contains("=#showAccess")) {
-            	System.out.println("\n**Visiting** Received web page at " + currentUrl);
+            	System.out.println("\n["+this.pagesVisited.size()+"]**Visiting** Received web page at " + currentUrl);
                 leg.read();
             } 
 
