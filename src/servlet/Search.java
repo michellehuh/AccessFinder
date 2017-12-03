@@ -39,7 +39,7 @@ public class Search extends HttpServlet {
 			key = itr.next();
 			if (key.contains(searchWord.toUpperCase())) {
 				response.getOutputStream().print(Data.ubcMap.get(key));
-				break;
+				return;
 			}
 		}
 		
