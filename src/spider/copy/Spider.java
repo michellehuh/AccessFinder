@@ -34,12 +34,12 @@ public class Spider {
                 currentUrl = this.nextUrl();
             }
 
-
+            if (currentUrl.contains("=#showAccess") && !currentUrl.contains("show=n,n,y,n,n,y")) {
+            	continue;
+            }
+            
             leg.crawl(currentUrl); // Lots of stuff happening here. Look at the crawl method in
-            // SpiderLeg
-            boolean possible = false;
-
-            //only need to craw n,n,y,n,n,y
+            
             if (currentUrl.contains("=#showAccess")) {
             	System.out.println("\n**Visiting** Received web page at " + currentUrl);
                 leg.read();
@@ -49,7 +49,7 @@ public class Spider {
             for (String link : links) {
                 if (link.contains("search_results.php?") 
                 		|| link.contains("index_detail.php?") 
-                		|| (possible && link.contains("=#showAccess") && link.contains("show=n,n,y,n,n,y"))) {
+                		|| (link.contains("=#showAccess") && link.contains("show=n,n,y,n,n,y"))) {
                     this.pagesToVisit.add(link);
                 }
             }

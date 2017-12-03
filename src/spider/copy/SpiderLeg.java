@@ -91,7 +91,7 @@ public class SpiderLeg
 
         //return showAccessElement.get(0).toString();
         String h1String = h1.toString().substring(4, h1.toString().indexOf("<span"));
-        Data.ubcMap.put(h1String, element.toString().replaceAll("src=\"images", "src=\"http://maps.ubc.ca/PROD/images"));
+        Data.ubcMap.put(h1String.toUpperCase(), element.toString().replaceAll("src=\"images", "src=\"http://maps.ubc.ca/PROD/images"));
         System.out.println(h1String);
         return "";
     }
